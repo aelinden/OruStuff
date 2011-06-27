@@ -10,7 +10,6 @@
  * The presenter deals with signals and slots between the comparer (Model) and the main window (View).
  * Using this design pattern, the internals and the UI does not need to know about eachother.
  */
-
 Presenter::Presenter(QObject *parent) : QObject(parent)
 {
     mainWindow = new EnforcerWindow();
@@ -30,6 +29,7 @@ void Presenter::connectSlotsAndSignals() {
     QObject::connect(mainWindow, SIGNAL(signal_OpenFile(FileProcessor::FileId,const QString &)), processor, SLOT(slot_OpenFile(FileProcessor::FileId, const QString &)));
     QObject::connect(mainWindow, SIGNAL(signal_SetComparedColumns(QList<int>)), processor, SLOT(slot_SetComparedColumns(QList<int>)));
     QObject::connect(mainWindow, SIGNAL(signal_StartScan()), processor, SLOT(slot_Process()));
+    QObject::connect(mainWindow, SIGNAL(signal_ViewResults()), this, SLOT(slot_ViewResults()));
     // Signals from GUI to behaviour
     QObject::connect(mainWindow, SIGNAL(signal_SetRequiredMatchingColumns(int)), behaviour, SLOT(slot_SetRequiredMatches(int)));
     // Signals from processor to GUI
@@ -38,4 +38,13 @@ void Presenter::connectSlotsAndSignals() {
     QObject::connect(processor, SIGNAL(signal_ComparedColumnsSet()), mainWindow, SLOT(slot_onComparedColumnsSet()));
     // Signals from behaviour to GUI
     QObject::connect(behaviour, SIGNAL(signal_RequiredMatchesSet()), mainWindow, SLOT(slot_onRequiredMatchingColumnsSet()));
+}
+
+/*
+ * Show results in a result window
+ */
+void Presenter::slot_ViewResults() {
+    qDebug() << "In presenter, result signal caught" << endl;
+    // For now, just save the results to file
+    processor->SaveResultsToFile();
 }

@@ -17,6 +17,9 @@ public:
     explicit Presenter(QObject *parent);
     ~Presenter();
 
+private slots:
+    void slot_ViewResults();
+
 private:
     void connectSlotsAndSignals();
     EnforcerWindow *mainWindow;

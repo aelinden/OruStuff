@@ -4,7 +4,7 @@
 #include <QFileDialog>
 #include <QDebug>
 #include <QList>
-#include "../FileProcessorLibrary/FileProcessorLibrary/fileprocessorlibrary.h"
+#include "../FileProcessor/FileProcessor/fileprocessor.h"
 
 SimpleMergerWindow::SimpleMergerWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -31,11 +31,11 @@ void SimpleMergerWindow::slot_Merge() {
 }
 
 void SimpleMergerWindow::slot_OpenFileOne() {
-    OpenFile(FileProcessorLibrary::FILE_ONE, QFileDialog::AcceptOpen);
+    OpenFile(FileProcessor::FILE_ONE, QFileDialog::AcceptOpen);
 }
 
 void SimpleMergerWindow::slot_OpenFileTwo() {
-    OpenFile(FileProcessorLibrary::FILE_TWO, QFileDialog::AcceptOpen);
+    OpenFile(FileProcessor::FILE_TWO, QFileDialog::AcceptOpen);
 }
 
 /*
@@ -43,7 +43,7 @@ void SimpleMergerWindow::slot_OpenFileTwo() {
  * (See slot_OpenFileN above)
  */
 void SimpleMergerWindow::slot_SelectSaveFile() {
-    OpenFile(FileProcessorLibrary::OUT_FILE, QFileDialog::AcceptSave);
+    OpenFile(FileProcessor::OUT_FILE, QFileDialog::AcceptSave);
 }
 
 void SimpleMergerWindow::OpenFile(int fileId, QFileDialog::AcceptMode acceptMode) {
@@ -64,11 +64,11 @@ void SimpleMergerWindow::OpenFile(int fileId, QFileDialog::AcceptMode acceptMode
 
 
 void SimpleMergerWindow::slot_FileOneColumnsEditChanged(const QString & s) {
-    ColumnsEditChanged(s, FileProcessorLibrary::FILE_ONE);
+    ColumnsEditChanged(s, FileProcessor::FILE_ONE);
 }
 
 void SimpleMergerWindow::slot_FileTwoColumnsEditChanged(const QString & s) {
-    ColumnsEditChanged(s, FileProcessorLibrary::FILE_TWO);
+    ColumnsEditChanged(s, FileProcessor::FILE_TWO);
 }
 
 void SimpleMergerWindow::slot_MatchColumnEditChanged(const QString & s) {
@@ -77,15 +77,15 @@ void SimpleMergerWindow::slot_MatchColumnEditChanged(const QString & s) {
 
 void SimpleMergerWindow::slot_FileOpened(int fileId, const QString & fileName) {
     switch(fileId) {
-    case FileProcessorLibrary::FILE_ONE:
+    case FileProcessor::FILE_ONE:
         ui->fileOneLabel->setText(fileName);
         fileOneOpened = true;
         break;
-    case FileProcessorLibrary::FILE_TWO:
+    case FileProcessor::FILE_TWO:
         ui->fileTwoLabel->setText(fileName);
         fileTwoOpened = true;
         break;
-    case FileProcessorLibrary::OUT_FILE:
+    case FileProcessor::OUT_FILE:
         ui->outFileLabel->setText(fileName);
         outFileOpened = true;
         break;

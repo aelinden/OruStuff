@@ -24,7 +24,11 @@
     <item row="1" column="0">
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="1">
-       <widget class="QLineEdit" name="comparedColumnsEdit"/>
+       <widget class="QLineEdit" name="comparedColumnsEdit">
+        <property name="toolTip">
+         <string>Set the columns you wish to compare between files. Separate multiple columns with a comma.</string>
+        </property>
+       </widget>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="matchingLabel">
@@ -41,7 +45,11 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="requiredMatchesEdit"/>
+       <widget class="QLineEdit" name="requiredMatchesEdit">
+        <property name="toolTip">
+         <string>Set the number of columns that have to match in order for the search to be considered a match.</string>
+        </property>
+       </widget>
       </item>
       <item row="0" column="0">
        <widget class="QLabel" name="compareLabel">

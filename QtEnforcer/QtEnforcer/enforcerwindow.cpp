@@ -120,7 +120,7 @@ void EnforcerWindow::OpenFile(FileProcessor::FileId fileId, QFileDialog::AcceptM
     picked = picker->selectedFiles();
 
     if(dialogCode == QFileDialog::Accepted) {
-        emit signal_OpenFile(fileId, picked[0]);
+        emit signal_OpenFile(fileId, picked[0]); // picked[0] since we want the first picked file.
     }
     else {
         qDebug() << "User cancelled file selection" << endl;

@@ -119,6 +119,10 @@ void EnforcerProcessBehaviour::slot_SetRequiredMatches(int i) {
 
 void EnforcerProcessBehaviour::Process(FileProcessor *processor) {
     // Add process behaviour for EnforcerProcessBehaviour
+    processor->ReadFromFile(FileProcessor::FILE_ONE);
+    processor->ReadFromFile(FileProcessor::FILE_TWO);
+
+
 }
 
 

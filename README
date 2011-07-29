@@ -1,4 +1,9 @@
 Projects for ORU
 
+The applications are written in C++ using Qt.
+Preferred IDE is QtCreator.
+
+The applications (So far) are:
+
 - Simple merger
 - Snowball enforcer

@@ -80,7 +80,7 @@ void SimpleProcessBehaviour::Process(FileProcessor *processor) {
             fileTwoLineSplit = (*it2).split('\t', QString::KeepEmptyParts);
 
             /*
-             * If contents of "cell" at index process->m_matchColumn match from both files, it's a hit and should be merged.
+             * If contents of "cell" at index process->m_matchColumn[0] match from both files, it's a hit and should be merged.
              */
             if(fileOneLineSplit[processor->m_matchColumns[0]] == (fileTwoLineSplit[processor->m_matchColumns[0]])) {
                 foreach(int i, m_fileOneColumns) {

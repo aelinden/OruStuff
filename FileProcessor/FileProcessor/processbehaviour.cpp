@@ -65,13 +65,18 @@ void SimpleProcessBehaviour::Process(FileProcessor *processor) {
     QString outString;
     QTextStream outStringStream(&outString);
 
-    // Contains contents of the current row from each file, split using delimiter
+    /*
+     * Contains contents of the current row from each file, split using delimiter
+     */
     QStringList fileOneLineSplit;
     QStringList fileTwoLineSplit;
 
+    /*
+     * Splits each file from both files. Delimiter is currently hardcoded to tab. Should be selectable in main window
+     */
     for(it = processor->m_fileOneContents->begin(); it != processor->m_fileOneContents->end(); ++it) {
+        fileOneLineSplit = (*it).split('\t', QString::KeepEmptyParts);
         for(it2 = processor->m_fileTwoContents->begin(); it2 != processor->m_fileTwoContents->end(); ++it2) {
-            fileOneLineSplit = (*it).split('\t', QString::KeepEmptyParts);
             fileTwoLineSplit = (*it2).split('\t', QString::KeepEmptyParts);
 
             /*

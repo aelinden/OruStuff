@@ -46,7 +46,7 @@ void SimpleMergerWindow::slot_SelectSaveFile() {
     OpenFile(FileProcessor::OUT_FILE, QFileDialog::AcceptSave);
 }
 
-void SimpleMergerWindow::OpenFile(int fileId, QFileDialog::AcceptMode acceptMode) {
+void SimpleMergerWindow::OpenFile(FileProcessor::FileId fileId, QFileDialog::AcceptMode acceptMode) {
     QFileDialog *picker = new QFileDialog(this, Qt::Window);
     picker->setAcceptMode(acceptMode);
     QStringList picked;
@@ -75,7 +75,7 @@ void SimpleMergerWindow::slot_MatchColumnEditChanged(const QString & s) {
     emit signal_SetMatchColumn(s.toInt());
 }
 
-void SimpleMergerWindow::slot_FileOpened(int fileId, const QString & fileName) {
+void SimpleMergerWindow::slot_FileOpened(FileProcessor::FileId fileId, const QString & fileName) {
     switch(fileId) {
     case FileProcessor::FILE_ONE:
         ui->fileOneLabel->setText(fileName);

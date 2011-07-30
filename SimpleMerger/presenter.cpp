@@ -24,6 +24,10 @@ Presenter::~Presenter()
 
 }
 
+/*
+ * Connect slots and signals between UI and file processor/process behaviour
+ */
 void Presenter::connectSlotsAndSignals() {
-    qDebug() << "Connect stuff" << endl;
+    QObject::connect(mainWindow, SIGNAL(signal_OpenFile(FileProcessor::FileId ,QString)), processor, SLOT(slot_OpenFile(FileProcessor::FileId,QString)));
+    QObject::connect(processor, SIGNAL(signal_FileOpened(FileProcessor::FileId,QString)), mainWindow, SLOT(slot_FileOpened(FileProcessor::FileId ,QString)));
 }

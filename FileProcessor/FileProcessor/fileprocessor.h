@@ -30,8 +30,10 @@ namespace Processor {
  *      Opens the file with the supplied file name. Depening on file id, an in- or out file.
  * - slot_Process()
  *      Starts the file processing with the active process behaviour
- * - slot_SetMatchColumn(int)
- *      Sets which column should be used to match the two files being processed.
+ * - slot_SetComparedColumns(int)
+ *      Sets which column(s) should be used to match the two files being processed.
+ * - slot_SetComparedColumns(const QList<int> &)
+ *      Overloaded function
  * - slot_SetFileColumns(QStringList, int)
  *      Sets the columns to merge into the new results from file with supplied id
  * - slot_SetRequiredMatches(int)

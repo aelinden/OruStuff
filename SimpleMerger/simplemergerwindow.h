@@ -25,7 +25,7 @@ public:
 signals:
     void signal_StartProcess();
     void signal_OpenFile(FileProcessor::FileId, const QString &);
-    void signal_SetMatchColumn(int);
+    void signal_SetComparedColumn(int);
     void signal_SetFileColumns(QStringList, int);
 public slots:
     void slot_Merge();
@@ -35,7 +35,7 @@ public slots:
     void slot_SelectSaveFile();
     void slot_FileOneColumnsEditChanged(const QString &);
     void slot_FileTwoColumnsEditChanged(const QString &);
-    void slot_MatchColumnEditChanged(const QString &);
+    void slot_ComparedColumnEditChanged(const QString &);
 private:
     void ActivateMergeButton();
     Ui::SimpleMergerWindow *ui;

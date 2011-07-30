@@ -16,7 +16,7 @@ SimpleMergerWindow::SimpleMergerWindow(QWidget *parent) :
     connect(ui->fileTwoButton, SIGNAL(clicked()), this, SLOT(slot_OpenFileTwo()));
     connect(ui->fileOneColumnsEdit, SIGNAL(textChanged(QString)), this, SLOT(slot_FileOneColumnsEditChanged(QString)));
     connect(ui->fileTwoColumnsEdit, SIGNAL(textChanged(QString)), this, SLOT(slot_FileTwoColumnsEditChanged(QString)));
-    connect(ui->matchColumnEdit, SIGNAL(textChanged(QString)), this, SLOT(slot_MatchColumnEditChanged(QString)));
+    connect(ui->comparedColumnEdit, SIGNAL(textChanged(QString)), this, SLOT(slot_ComparedColumnEditChanged(QString)));
     connect(ui->outFileButton, SIGNAL(clicked()), this, SLOT(slot_SelectSaveFile()));
 }
 
@@ -71,8 +71,8 @@ void SimpleMergerWindow::slot_FileTwoColumnsEditChanged(const QString & s) {
     ColumnsEditChanged(s, FileProcessor::FILE_TWO);
 }
 
-void SimpleMergerWindow::slot_MatchColumnEditChanged(const QString & s) {
-    emit signal_SetMatchColumn(s.toInt());
+void SimpleMergerWindow::slot_ComparedColumnEditChanged(const QString & s) {
+    emit signal_SetComparedColumn(s.toInt());
 }
 
 void SimpleMergerWindow::slot_FileOpened(FileProcessor::FileId fileId, const QString & fileName) {

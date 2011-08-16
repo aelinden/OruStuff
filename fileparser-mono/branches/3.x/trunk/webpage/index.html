@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>The Anders Program</title>
+<meta name="generator" content="Bluefish 2.0.0" >
+<meta name="author" content="Anders Linden" >
+<meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="looks.css" />
+</head>
+<body>
+
+<p>
+<h2>About</h2>
+This program parses a file consisting of survey info. It summarizes the number of times <br>
+each student in a class has been nominated while excluding self-nominations and cross class nominations.<br>
+The program also calculates percentages, averages, standard deviations and individual differences.<br>
+</p>
+
+<p>
+<h2>The excel file</h2>
+The excel file being used to create the input file for the program should look like this:
+<p>
+<img src="filesyntax.jpg">
+</p>
+The First column is the student id, the second the class of the student and third column and forward
+is the students answer to the question mentioned in the top row in the same column. (Ex. In the picture above,
+student with id <i>1</i> in class <i>171</i> nominated student with id <i>10</i> in class <i>171</i> for question <i>SK1A</i>)
+The first row is the header row which must contain the question names (SK1A, SK1B and so on). The header 
+text for the id and class columns are not used but should still be present for clarity.
+</p>
+
+<p>
+<h2>The input file</h2>
+For the program to be able to process this file, it must be converted from Excel-format to text format. 
+<ul>
+<li>If you are using Excel, choose File -> Save As and as file type select <i>Text (Tab delimited)</i>.</li><br>
+<li>If you are using OpenOffice, choose File -> Save As and select <i>Text CSV</i> as file type. Make sure that no text delimiter is set. 
+That is, the value for text delimiter should be blank. If it is not, the program will not parse the
+resulting file correctly. The Field delimiter should be set to <i>{tab}</i>.</li>
+</ul>
+When saved a text version of the Excel file will be created that can be parsed by the program.
+</p>
+<p>
+<h2>Program prerequisites</h2>
+The file parser is written in C# using Gtk# which means some packages have to be installed on your computer
+before it can be run. 
+<p>
+If not already installed, the .NET environment can be downloaded from 
+<a href="http://www.microsoft.com/downloads/details.aspx?displaylang=en&FamilyID=333325fd-ae52-4e35-b531-508d977d32a6">here</a>.<br>
+When .NET is installed, download Gtk# for .NET from 
+<a href="http://ftp.novell.com/pub/mono/gtk-sharp/gtk-sharp-2.12.8-1.win32.msi">here</a> and install it.<br>
+</p>
+Without these packages installed, the program will not run.
+</p>
+
+<p>
+<h2>Usage</h2>
+Unpack the program anywhere on your computer. No installation is required. After starting the program
+by double clicking its icon, select the text file you created earlier by choosing <i>File->Open</i> or clicking 
+the <i>Open</i> button. Now click the <i>Parse</i> button to process the file. When this is done, 
+you can either view the results in the text window by pressing the <i>View</i> button, and/or save the results
+to a file by clicking on the <i>Save</i> button. The saved file will be placed in the same directory as the input file.
+</p>
+
+<p>
+You can now open the results file in Excel or OpenOffice. If you are using OpenOffice, when importing set the field delimiter
+to <i>{tab}</i> (Since this was what was set as delimiter when exporting the file, and is what the program uses as delimiter)
+and the data should be imported correctly.
+
+<p>
+<h2>Download</h2>
+Get the program <a href="http://bashburn.dose.se/index.php?s=file_download&id=16"> here</a>.
+</p>
+
+<p>
+<h2>Questions/Bugs</h2>
+Send questions or bug reports to anders DOT linden AT gmail DOT com. Be sure to supply the version number of the program
+which can be found by double clicking <i>About</i> item in the program main window.<br>
+Should you want to have the source code for the program it can also be provided.
+</p>
+
+</body>
+</html>

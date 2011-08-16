@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>The Anders Program</title>
+<meta name="generator" content="Bluefish 2.0.1" >
+<meta name="author" content="Anders Linden" >
+<meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="looks.css" />
+</head>
+<body>
+
+<p class="centertext">
+	<a href="#ABOUT">[ABOUT]</a>
+	<a href="#PRE">[PREREQUISITES]</a>
+	<a href="#USAGE">[USAGE]</a>
+	<a href="#DOWNLOAD">[DOWNLOAD]</a>
+	<a href="#QUESTIONS">[QUESTIONS]</a>
+</p>
+
+<!--
+	About section.
+-->
+<p>
+	<a name="ABOUT"><h2>About</h2></a>
+		This program parses a file consisting of survey info. It summarizes the number of times <br>
+		each student in a class has been nominated while excluding self-nominations and cross class nominations.<br>
+		The program also calculates percentages, averages, standard deviations and individual differences.<br>
+</p>
+
+<!--
+	Prerequisites section. Make sure links are updated.
+-->
+<p>
+	<a name="PRE"><h2>Program prerequisites</h2></a>
+		The file parser is written in C# using Gtk# which means some packages have to be installed on your computer
+		before it can be run.
+		<p>
+			<ul>
+				<li> <a href="http://www.microsoft.com/downloads/details.aspx?displaylang=en&FamilyID=333325fd-ae52-4e35-b531-508d977d32a6">Microsoft .NET</a>
+						(.NET is most likely already installed on your computer)
+				<li> <a href="http://ftp.novell.com/pub/mono/gtk-sharp/gtk-sharp-2.12.9-2.win32.msi">Gtk Sharp</a></li>
+			</ul>
+		</p>
+		Without these packages installed, the program will not run.
+</p>
+
+<!--
+	Usage section. Explains input file syntax and program usage.
+-->
+<p>
+	<a name="USAGE"><h2>Program usage</h2></a>
+		Before starting the program, its input file must have the correct syntax and be in an acceptable format.
+
+		<h3>The Excel file</h3>		
+			The excel file being used to create the input file for the program should look like this:
+			<p>
+				<img src="filesyntax.jpg">
+			</p>
+			The First column is the student id, the second the class of the student and third column and forward
+			is the students answer to the question mentioned in the top row in the same column. (Ex. In the picture above,
+			student with id <i>1</i> in class <i>171</i> nominated student with id <i>10</i> in class <i>171</i> for question <i>SK1A</i>)
+			The first row is the header row which must contain the question names (SK1A, SK1B and so on). 
+					
+		<h3>The input file</h3>
+			For the program to be able to process this file, it must be converted from Excel-format to text format. 
+			<ul>
+				<li>If you are using Excel, choose File -> Save As and as file type select <i>Text (Tab delimited)</i>.</li><br>
+				<li>If you are using OpenOffice, choose File -> Save As and select <i>Text CSV</i> as file type. Make sure that no text delimiter is set. 
+					That is, the value for text delimiter should be blank. If it is not, the program will not parse the
+					resulting file correctly. The Field delimiter should be set to <i>{tab}</i>.</li>
+			</ul>
+			When saved a text version of the Excel file will be created that can be parsed by the program.
+
+		<h3>Running the program</h3>
+		<ul>
+			<li>Unpack the program anywhere on your computer. No installation is required.</li>
+			<li>Start the program by double clicking its icon</li>
+			<li>Select the text file you created earlier by clicking the <i>Open</i>-button.
+			When the file has been selected, the status bar will display the file name.</li>
+			<li>Click the <i>Calculate</i> button to process the file.</li>
+			<li>Click the <i>View/Save</i>-button to display the results.</li>
+			<li>A view window will now show the results, and to save the results to a file, click the <i>Save</i>-button.
+			A popup will inform you that the file has now been saved. The saved file will be placed in the same directory
+			as the input file.</li>
+
+			You can now open the results file in Excel or OpenOffice. If you are using OpenOffice, when importing set the field delimiter
+			to <i>{tab}</i> (Since this was what was set as delimiter when exporting the file, and is what the program uses as delimiter)
+			and the data should be imported correctly.
+		</ul>
+</p>
+
+<!--
+	Download section 
+-->
+<p>
+	<a name="DOWNLOAD"><h2>Download</h2></a>
+	<ul>
+		<li>Latest version <a href="http://bashburn.dose.se/index.php?s=file_download&id=21"> [DOWNLOAD]</a>
+		<li>Source code for program (Only for interested developers) <a href="http://bashburn.dose.se/index.php?s=file_download&id=22">[DOWNLOAD]</a> 
+		<li>Previous version <a href="http://bashburn.dose.se/index.php?s=file_download&id=16"> [DOWNLOAD]</a>
+	</ul>
+</p>
+
+<!--
+	Questions section
+-->
+<p>
+<a name="QUESTIONS"><h2>Questions/Bugs</h2></a>
+Send questions or bug reports to anders DOT linden AT gmail DOT com. Be sure to supply the version number of the program
+which can be found by clicking the <i>About</i>-button in the main window.<br>
+Should you want to have the source code for the program it can also be provided.
+</p>
+
+</body>
+</html>

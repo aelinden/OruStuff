@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ItemType>PackagingProject</ItemType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{89F9C2F2-9AE4-4B64-B73A-ECD524CEC837}</ProjectGuid>
+    <Packages>
+      <Packages xmlns="">
+        <Package name="Mono Makefile Sources">
+          <Builder targetFile="fileparser-sharp-.tar.gz" format="MonoDevelop.Projects.FileFormat" ctype="SourcesZipPackageBuilder">
+            <ChildEntries>
+              <SolutionItemReference path="fileparser-sharp\fileparser-sharp.csproj" />
+            </ChildEntries>
+            <RootEntry path="fileparser-sharp.sln" id="fileparser-sharp" />
+          </Builder>
+        </Package>
+        <Package name="Linux Binaries">
+          <Builder targetFile="fileparser-sharp-linux.tar.gz" platform="Linux" configuration="Debug" ctype="BinariesZipPackageBuilder">
+            <ChildEntries>
+              <SolutionItemReference path="fileparser-sharp\fileparser-sharp.csproj" />
+            </ChildEntries>
+            <RootEntry path="fileparser-sharp.sln" id="fileparser-sharp" />
+          </Builder>
+        </Package>
+        <Package name="Microsoft Windows Binaries">
+          <Builder targetFile="fileparser-sharp-windows.tar.gz" platform="Windows" configuration="Debug" ctype="BinariesZipPackageBuilder">
+            <ChildEntries>
+              <SolutionItemReference path="fileparser-sharp\fileparser-sharp.csproj" />
+            </ChildEntries>
+            <RootEntry path="fileparser-sharp.sln" id="fileparser-sharp" />
+          </Builder>
+        </Package>
+      </Packages>
+    </Packages>
+  </PropertyGroup>
+</Project>

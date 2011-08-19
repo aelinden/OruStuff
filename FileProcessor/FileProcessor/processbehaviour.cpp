@@ -56,6 +56,9 @@ void SimpleProcessBehaviour::Process(FileProcessor *processor) {
     processor->ReadFromFile(FileProcessor::FILE_ONE);
     processor->ReadFromFile(FileProcessor::FILE_TWO);
 
+    // Clear any previous results (If any).
+    processor->m_results->clear();
+
     QStringList::const_iterator it;
     QStringList::const_iterator it2;
 

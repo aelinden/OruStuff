@@ -18,6 +18,7 @@ SimpleMergerWindow::SimpleMergerWindow(QWidget *parent) :
     connect(ui->fileTwoColumnsEdit, SIGNAL(textChanged(QString)), this, SLOT(slot_FileTwoColumnsEditChanged(QString)));
     connect(ui->comparedColumnEdit, SIGNAL(textChanged(QString)), this, SLOT(slot_ComparedColumnEditChanged(QString)));
     connect(ui->outFileButton, SIGNAL(clicked()), this, SLOT(slot_SelectSaveFile()));
+    connect(ui->viewButton, SIGNAL(clicked()), this, SLOT(slot_ViewButtonClicked()));
 }
 
 SimpleMergerWindow::~SimpleMergerWindow()
@@ -93,6 +94,10 @@ void SimpleMergerWindow::slot_FileOpened(FileProcessor::FileId fileId, const QSt
         qDebug() << tr("File with strange fileId opened. You should not be here!") << endl;
     }
     ActivateMergeButton();
+}
+
+void SimpleMergerWindow::slot_ViewButtonClicked() {
+    // TODO
 }
 
 void SimpleMergerWindow::ColumnsEditChanged(const QString & editText, int id) {

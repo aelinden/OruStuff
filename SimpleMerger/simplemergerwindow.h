@@ -36,6 +36,7 @@ public slots:
     void slot_FileOneColumnsEditChanged(const QString &);
     void slot_FileTwoColumnsEditChanged(const QString &);
     void slot_ComparedColumnEditChanged(const QString &);
+    void slot_ViewButtonClicked();
 private:
     void ActivateMergeButton();
     Ui::SimpleMergerWindow *ui;

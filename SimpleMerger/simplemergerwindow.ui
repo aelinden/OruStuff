@@ -14,8 +14,8 @@
    <string>Simple Merger</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QVBoxLayout" name="verticalLayout_4">
-    <item>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
        <widget class="QPushButton" name="fileOneButton">
@@ -46,7 +46,7 @@
       </item>
      </layout>
     </item>
-    <item>
+    <item row="1" column="0">
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
        <widget class="QPushButton" name="fileTwoButton">
@@ -77,7 +77,7 @@
       </item>
      </layout>
     </item>
-    <item>
+    <item row="2" column="0">
      <layout class="QHBoxLayout" name="horizontalLayout_5">
       <item>
        <widget class="QPushButton" name="outFileButton">
@@ -108,7 +108,7 @@
       </item>
      </layout>
     </item>
-    <item>
+    <item row="3" column="0">
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <layout class="QVBoxLayout" name="verticalLayout">
@@ -175,7 +175,7 @@
       </item>
      </layout>
     </item>
-    <item>
+    <item row="4" column="0">
      <layout class="QHBoxLayout" name="horizontalLayout_4">
       <item>
        <spacer name="horizontalSpacer">
@@ -200,6 +200,16 @@
         </property>
        </widget>
       </item>
+      <item>
+       <widget class="QPushButton" name="viewButton">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>View</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
    </layout>
@@ -210,7 +220,7 @@
      <x>0</x>
      <y>0</y>
      <width>400</width>
-     <height>20</height>
+     <height>19</height>
     </rect>
    </property>
   </widget>

@@ -107,7 +107,7 @@ void SimpleProcessBehaviour::Process(FileProcessor *processor) {
     }
     // For the time being save the results directly (UI has no save button).
     // Should emit signal that file has been saved so a popup can be shown with a message.
-    processor->SaveResultsToFile();
+    processor->slot_SaveResultsToFile();
 }
 
 EnforcerProcessBehaviour::EnforcerProcessBehaviour(QObject *parent) : ProcessBehaviour(parent) {
@@ -131,6 +131,43 @@ void EnforcerProcessBehaviour::Process(FileProcessor *processor) {
     processor->ReadFromFile(FileProcessor::FILE_TWO);
 
 
+    /*
+     * Contains contents of the current row from each file, split using delimiter
+     */
+    QStringList fileOneLineSplit;
+    QStringList fileTwoLineSplit;
+
+    /*
+     * Create string and connect a text stream to it
+     */
+    QString outString;
+    QTextStream outStringStream(&outString);
+
+    /*
+     * Splits each file from both files. Delimiter is currently hardcoded to tab. Should be selectable in main window
+     */
+    QStringList::const_iterator f1it, f2it;
+    for(f1it = processor->m_fileOneContents->begin(); f1it != processor->m_fileOneContents->end(); ++f1it) {
+        fileOneLineSplit = (*f1it).split('\t', QString::KeepEmptyParts);
+        for(f2it = processor->m_fileTwoContents->begin(); f2it != processor->m_fileTwoContents->end(); ++f2it) {
+            fileTwoLineSplit = (*f2it).split('\t', QString::KeepEmptyParts);
+            m_currentMatches = 0;
+
+            foreach(int column, processor->m_matchColumns)
+            {
+                if(QString::compare(fileOneLineSplit[column], fileTwoLineSplit[column], Qt::CaseInsensitive) == 0
+                        && !fileOneLineSplit[column].isEmpty() && !fileTwoLineSplit[column].isEmpty())
+                    m_currentMatches++;
+            }
+
+            if(m_currentMatches >= m_requiredMatches) {
+                qDebug() << "This line counts as a match" << endl;
+                processor->m_results->append(*f1it);
+                processor->m_results->append(*f2it);
+                //outStringStream << endl << (*f1it) << endl << (*f2it) << endl;
+            }
+        }
+    }
 }
 
 

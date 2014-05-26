@@ -1,8 +1,8 @@
 #include "presenter.h"
 #include "resultwindow.h"
 #include "enforcerwindow.h"
-#include "../../FileProcessor/FileProcessor/fileprocessor.h"
-#include "../../FileProcessor/FileProcessor/processbehaviour.h"
+#include "../FileProcessor/FileProcessor/fileprocessor.h"
+#include "../FileProcessor/FileProcessor/processbehaviour.h"
 #include <QObject>
 #include <QDebug>
 
@@ -15,6 +15,7 @@ Presenter::Presenter(QObject *parent) : QObject(parent)
     mainWindow = new EnforcerWindow();
     behaviour = new EnforcerProcessBehaviour();
     processor = new FileProcessor(behaviour);
+    resultWindow = new ResultWindow();
     connectSlotsAndSignals();
     mainWindow->show();
 }
@@ -30,6 +31,7 @@ void Presenter::connectSlotsAndSignals() {
     QObject::connect(mainWindow, SIGNAL(signal_SetComparedColumns(QList<int>)), processor, SLOT(slot_SetComparedColumns(QList<int>)));
     QObject::connect(mainWindow, SIGNAL(signal_StartScan()), processor, SLOT(slot_Process()));
     QObject::connect(mainWindow, SIGNAL(signal_ViewResults()), this, SLOT(slot_ViewResults()));
+    QObject::connect(resultWindow, SIGNAL(signal_SaveFile()), processor, SLOT(slot_SaveResultsToFile()));
     // Signals from GUI to behaviour
     QObject::connect(mainWindow, SIGNAL(signal_SetRequiredMatchingColumns(int)), behaviour, SLOT(slot_SetRequiredMatches(int)));
     // Signals from processor to GUI
@@ -45,6 +47,7 @@ void Presenter::connectSlotsAndSignals() {
  */
 void Presenter::slot_ViewResults() {
     qDebug() << "In presenter, result signal caught" << endl;
-    // For now, just save the results to file
-    processor->SaveResultsToFile();
+
+    resultWindow->setResultsToPrint(processor->GetResults());
+    resultWindow->exec();
 }

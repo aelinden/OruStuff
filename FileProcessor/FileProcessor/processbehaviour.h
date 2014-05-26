@@ -54,7 +54,9 @@ public slots:
 signals:
         void signal_RequiredMatchesSet();
 private:
-    int m_requiredMatches; // Matches required to be considered a hit
+        QList<int> m_comparedColumns; // List of columns to compare
+        int m_requiredMatches; // Matches required to be considered a hit
+        int m_currentMatches;     // Counter to keep track of matches during a comparison
 };
 
 #endif // PROCESSBEHAVIOUR_H

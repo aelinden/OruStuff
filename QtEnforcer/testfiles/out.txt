@@ -1,0 +1,6 @@
+1	Sheckler	Tara	Granrisvägen 9	70133	ÖREBRO	707-268859										
+1	Sheckler	Tera		70133	ÖREBRO	707-268859										
+2	Kerr	Ari	Bubsgatan 1	74444	ÖREBRO	19,303,086										
+2	Kerr	Ari	Bubsgatan 1	74444	ÖREBRO	19,303,086										
+3	Lindén	Anders	Fågelvägen 9	70133	Nora	4155569293										
+3		Anders	Fågelvägen 9													

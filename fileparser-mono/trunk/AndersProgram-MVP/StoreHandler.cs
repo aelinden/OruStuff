@@ -11,9 +11,9 @@ namespace AndersProgramMVP
 	{
 		private ListStore store;
 		
-		public StoreHandler (int numberOfCols, System.Type t)
+		public StoreHandler (int numberOfCols, System.Type type)
 		{
-			this.prepareStore (numberOfCols, t);
+			this.prepareStore (numberOfCols, type);
 		}
 		
 		public ListStore listStore
@@ -32,12 +32,12 @@ namespace AndersProgramMVP
 		/// </param>
 		private void prepareStore (int numberofCols, System.Type type)
 		{
-			System.Type[] typeArr = new System.Type[numberofCols];
+			System.Type[] arrayOfSuppliedType = new System.Type[numberofCols];
 			for (int i = 0; i < numberofCols; ++i)
 			{
-				typeArr[i] = type;
+				arrayOfSuppliedType[i] = type;
 			}
-			this.store = new ListStore (typeArr);
+			this.store = new ListStore (arrayOfSuppliedType);
 		}
 	}
 }

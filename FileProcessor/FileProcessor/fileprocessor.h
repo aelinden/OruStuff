@@ -58,11 +58,15 @@ class FileProcessor : public QObject
     Q_OBJECT
 public:
     enum FileId { FILE_ONE, FILE_TWO, OUT_FILE };
+
     FileProcessor(ProcessBehaviour *behaviour = 0, QObject *parent = 0);
+#ifndef WIN32
+    FileProcessor(const FileProcessor &) = delete; // File processor should not be copied
+    FileProcessor & operator=(const FileProcessor &) = delete; // Or assigned
+#endif
     virtual ~FileProcessor();
     void SetProcessBehaviour(ProcessBehaviour *behaviour);
     const QStringList* GetResults() const;
-    void SaveResultsToFile();
     friend class SimpleProcessBehaviour;
     friend class EnforcerProcessBehaviour;
 public slots:
@@ -70,6 +74,7 @@ public slots:
     void slot_Process();
     void slot_SetComparedColumns(int);
     void slot_SetComparedColumns(const QList<int> &);
+    void slot_SaveResultsToFile();
 signals:
     void signal_FileOpened(FileProcessor::FileId, const QString &);
     void signal_ComparedColumnsSet();
@@ -77,8 +82,11 @@ signals:
 protected:
     void ReadFromFile(FileId id);
 private:
-    FileProcessor(const FileProcessor &); // File processor should not be copied
-    FileProcessor & operator=(const FileProcessor &); // Or assigned
+    // MSVC2010 doesn't support C++11
+#ifdef WIN32
+    FileProcessor(const FileProcessor &);
+    FileProcessor & operator=(const FileProcessor &);
+#endif
     ProcessBehaviour *m_pb;
     QStringList *m_fileOneContents;
     QStringList *m_fileTwoContents;

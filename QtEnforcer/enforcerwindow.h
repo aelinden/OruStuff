@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <QList>
 #include <QFileDialog>
-#include "../../FileProcessor/FileProcessor/fileprocessor.h"
+#include "../FileProcessor/FileProcessor/fileprocessor.h"
 class QRegExpValidator;
 class QStringList;
 

@@ -1,4 +1,4 @@
-#include <QtGui/QApplication>
+#include <QApplication>
 #include "simplemergerwindow.h"
 #include "../FileProcessor/FileProcessor/fileprocessor.h"
 #include "presenter.h"

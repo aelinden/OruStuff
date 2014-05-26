@@ -1,8 +1,32 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" ctype="Workspace" />
-  <MonoDevelop.Ide.Workbench ctype="Workbench" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="AndersProgram-MVP/Presenter.cs">
+    <Files>
+      <File FileName="AndersProgram-MVP/Main.cs" Line="20" Column="14" />
+      <File FileName="AndersProgram-MVP/Parser.cs" Line="94" Column="2" />
+      <File FileName="AndersProgram-MVP/MainWindow.cs" Line="115" Column="49" />
+      <File FileName="AndersProgram-MVP/ViewEventArgs.cs" Line="1" Column="1" />
+      <File FileName="AndersProgram-MVP/StoreHandler.cs" Line="35" Column="37" />
+      <File FileName="AndersProgram-MVP/AssemblyInfo.cs" Line="20" Column="32" />
+      <File FileName="AndersProgram-MVP/ResultViewWin.cs" Line="68" Column="5" />
+      <File FileName="AndersProgram-MVP/IOFilesArgs.cs" Line="1" Column="1" />
+      <File FileName="AndersProgram-MVP/Presenter.cs" Line="115" Column="4" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Solution Items" expanded="True" />
+          <Node name="Packages" expanded="True" />
+          <Node name="Peer nomination Program" expanded="True">
+            <Node name="Interfaces" expanded="True" />
+            <Node name="Presenter.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches ctype="PinnedWatchStore" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

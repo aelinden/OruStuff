@@ -110,7 +110,7 @@ namespace AndersProgramMVP
 				String.Format ("{0}"
 					+ Environment.NewLine + "Version {1}"
 				    + Environment.NewLine + "Licensed to Örebro University"
-				    + Environment.NewLine + "(C) 2009 - 2010 Anders Lindén",
+					+ Environment.NewLine + "(C) 2009 - 2014 Anders Lindén",
 				    name.Name.ToString(), v.Major.ToString () + "." + v.Minor.ToString());
 					MessageDialog md = new MessageDialog (this, DialogFlags.Modal, MessageType.Info,
 				ButtonsType.Ok, message);

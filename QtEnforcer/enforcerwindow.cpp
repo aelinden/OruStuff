@@ -4,7 +4,7 @@
 #include <QStringList>
 #include <QRegExp>
 #include <QDebug> // Temporary
-#include "../../FileProcessor/FileProcessor/fileprocessor.h"
+#include "../FileProcessor/FileProcessor/fileprocessor.h"
 
 EnforcerWindow::EnforcerWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -39,7 +39,6 @@ EnforcerWindow::EnforcerWindow(QWidget *parent) :
     QObject::connect(this, SIGNAL(signal_EnableViewButton()), this, SLOT(slot_enableViewButton()));
     QObject::connect(ui->viewButton, SIGNAL(clicked()), this, SLOT(slot_onViewClick()));
 
-
     // Enabled when user enters correct text in text edits
     comparedColumnsSet = false;
     requiredMatchingColumnsSet = false;
@@ -62,6 +61,9 @@ EnforcerWindow::EnforcerWindow(QWidget *parent) :
 
     ui->comparedColumnsEdit->setValidator(comparedColumnsValidator);
     ui->requiredMatchesEdit->setValidator(requiredMatchingColumnsValidator);
+
+    // DEBUG
+    ui->viewButton->setEnabled(true);
 }
 
 
@@ -117,9 +119,9 @@ void EnforcerWindow::OpenFile(FileProcessor::FileId fileId, QFileDialog::AcceptM
     picker->setAcceptMode(acceptMode);
     QStringList picked;
     int dialogCode = picker->exec();
-    picked = picker->selectedFiles();
 
     if(dialogCode == QFileDialog::Accepted) {
+        picked = picker->selectedFiles();
         emit signal_OpenFile(fileId, picked[0]); // picked[0] since we want the first picked file.
     }
     else {
@@ -240,3 +242,4 @@ void EnforcerWindow::slot_onViewClick()
     emit signal_ViewResults();
     qDebug() << "in main window, result signal sent" << endl;
 }
+

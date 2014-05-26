@@ -1,9 +1,14 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
-Project("{9344bdbb-3e7f-41fc-a0dd-8665d75ee146}") = "Packages", "Packages.mdproj", "{89F9C2F2-9AE4-4B64-B73A-ECD524CEC837}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "Packages", "Packages.mdproj", "{89F9C2F2-9AE4-4B64-B73A-ECD524CEC837}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Peer nomination Program", "AndersProgram-MVP\Peer nomination Program.csproj", "{D9D81037-065B-4FB2-BD29-9A1B3ECAD851}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A96D8BD4-12F1-48BA-B03A-007E79DA0429}"
+	ProjectSection(SolutionItems) = preProject
+		fileparser-sharp.sln = fileparser-sharp.sln
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +22,8 @@ Global
 		{D9D81037-065B-4FB2-BD29-9A1B3ECAD851}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9D81037-065B-4FB2-BD29-9A1B3ECAD851}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9D81037-065B-4FB2-BD29-9A1B3ECAD851}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = AndersProgram-MVP\Peer nomination Program.csproj

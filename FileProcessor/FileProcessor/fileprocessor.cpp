@@ -40,10 +40,10 @@ const QStringList* FileProcessor::GetResults() const {
     return m_results;
 }
 
-void FileProcessor::SaveResultsToFile() {
+void FileProcessor::slot_SaveResultsToFile() {
     QTextStream outStream((QIODevice*)m_outFile);
     foreach(QString s, *m_results) {
-        outStream << s;
+        outStream << s << endl;
     }
 }
 

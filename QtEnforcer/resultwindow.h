@@ -17,6 +17,8 @@ public:
     ~ResultWindow();
     void setResultsToPrint(const QStringList* results);
 
+signals:
+    void signal_SaveFile();
 private slots:
     void saveFile();
 
